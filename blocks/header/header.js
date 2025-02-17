@@ -146,6 +146,22 @@ export default async function decorate(block) {
     });
   }
 
+  const navTools = nav.querySelector('.nav-tools');
+  navTools.classList.add('cmp-search--header');
+  navTools.classList.add('search');
+  if(navTools) {
+    navTools.innerHTML = `<form class="cmp-search__form" data-cmp-hook-search="form" method="get" action="/search" autocomplete="off">
+        <div class="cmp-search__field">
+            <i class="cmp-search__icon" data-cmp-hook-search="icon"></i>
+            <span class="cmp-search__loading-indicator" data-cmp-hook-search="loadingIndicator"></span>
+            <input class="cmp-search__input" data-cmp-hook-search="input" type="text" name="fulltext" placeholder="Search" role="combobox" aria-autocomplete="list" aria-haspopup="true" aria-invalid="false" aria-expanded="false" aria-owns="cmp-search-results-0">
+            <button class="cmp-search__clear" data-cmp-hook-search="clear" aria-label="Clear">
+                <i class="cmp-search__clear-icon"></i>
+            </button>
+        </div>
+    </form>`;
+  }
+
   // hamburger for mobile
   const hamburger = document.createElement('div');
   hamburger.classList.add('nav-hamburger');
