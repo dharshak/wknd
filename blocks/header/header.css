@@ -328,6 +328,9 @@ header nav[aria-expanded='true'] {
 }
 
 @media(max-width: 767px) {
+  header .nav-wrapper{
+    padding: 14px 0;
+  }
   .cmp-search--header {
       padding-right:0;
       position: absolute;
