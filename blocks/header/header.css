@@ -2,8 +2,8 @@
 header {
   background-color: #fff;
   margin-top: 0;
-  padding-bottom: 50px;
-  padding-top: 50px;
+  /* padding-bottom: 50px;
+  padding-top: 50px; */
 }
 
 header .nav-wrapper {

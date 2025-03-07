@@ -704,6 +704,46 @@ async function loadSections(element) {
   }
 }
 
+function wrapElement(elementToWrap, wrapperTag, className) {
+  if(!elementToWrap)
+    return
+
+  // Create a new wrapper element
+  const wrapper = document.createElement(wrapperTag);
+  wrapper.classList.add(className);
+  var parentNode;
+  if(elementToWrap.length) {
+    parentNode = elementToWrap[0].parentNode;
+    parentNode.insertBefore(wrapper, elementToWrap[0]);
+    elementToWrap.forEach(ele => {
+      wrapper.append(ele);
+    });
+  } else {
+    parentNode = elementToWrap.parentNode;
+    parentNode.insertBefore(wrapper, elementToWrap);
+    // Move the element into the wrapper
+    wrapper.appendChild(elementToWrap);
+  }  
+}
+
+// Function to replace an HTML element's tag with a different one
+function replaceElementTag(elementToReplace, newTag, className) {
+    // Create a new element with the desired tag
+    const newElement = document.createElement(newTag);
+    
+    // Copy attributes from the old element to the new one
+    Array.from(elementToReplace.attributes).forEach(attr => {
+        newElement.setAttribute(attr.name, attr.value);
+    });
+    newElement.classList.add(className);
+    // Copy content from the old element to the new one
+    newElement.innerHTML = elementToReplace.innerHTML;
+    
+    // Replace the old element with the new one
+    elementToReplace.replaceWith(newElement);
+}
+
+
 init();
 
 export {
@@ -731,4 +771,6 @@ export {
   toClassName,
   waitForFirstImage,
   wrapTextNodes,
+  wrapElement,
+  replaceElementTag,
 };
