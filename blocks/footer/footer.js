@@ -19,8 +19,8 @@ export default async function decorate(block) {
   replaceElementTag(footer.getElementsByTagName('p')[0], 'div', 'footer-logo');
   wrapElement(footer.getElementsByTagName('ul')[0], 'div', 'footer-nav');
   wrapElement(footer.getElementsByTagName('p')[0], 'div', 'footer-social-links');
-  footer.querySelector('div.footer-social-links').append(footer.getElementsByTagName('ul')[1])
-  footer.querySelectorAll('.icon>img').forEach(ele => {ele.setAttribute('src',ele.getAttribute('src').replace('icons','images'))});
+  footer.querySelector('div.footer-social-links').append(footer.getElementsByTagName('ul')[1]);
+  footer.querySelectorAll('.icon>img').forEach((ele) => { ele.setAttribute('src', ele.getAttribute('src').replace('icons', 'images')); });
   wrapElement(footer.querySelectorAll('.default-content-wrapper > p'), 'div', 'footer-content');
   block.append(footer);
 }

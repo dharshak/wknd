@@ -149,7 +149,7 @@ export default async function decorate(block) {
   const navTools = nav.querySelector('.nav-tools');
   navTools.classList.add('cmp-search--header');
   navTools.classList.add('search');
-  if(navTools) {
+  if (navTools) {
     navTools.innerHTML = `<form class="cmp-search__form" data-cmp-hook-search="form" method="get" action="/search" autocomplete="off">
         <div class="cmp-search__field">
             <i class="cmp-search__icon" data-cmp-hook-search="icon"></i>
